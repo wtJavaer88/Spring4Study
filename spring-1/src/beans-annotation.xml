@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<!-- 配置自动扫描的包: 需要加入 aop 对应的 jar 包 -->
+	<!-- context:exclude-filter不包含哪些  type:annotation(注解)  type:assignable(类及其子类) type:regex(正则表达式) -->
+	<!-- <context:component-scan base-package="com.atguigu.spring.annotation">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+		<context:exclude-filter type="assignable" expression="com.atguigu.spring.annotation.generic.BaseService"/>
+		<context:exclude-filter type="assignable" expression="com.atguigu.spring.annotation.generic.BaseDao"/>
+	</context:component-scan> -->
+	
+	<context:component-scan base-package="com.atguigu.spring.annotation"  use-default-filters="false">
+		<!-- 不包含子包 -->
+		<!-- context:include-filter包含哪些  需要 use-default-filters=false配合使用-->
+		<context:include-filter type="regex" expression="com.atguigu.spring.annotation.[^.]*"/>
+	</context:component-scan>
+
+</beans>
+ 

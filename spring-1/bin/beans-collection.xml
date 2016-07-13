@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+	<bean id="car" class="com.atguigu.spring.collection.Car" p:brand="Audi" p:company="german" abstract="true"></bean>
+	<bean id="car1" class="com.atguigu.spring.collection.Car" p:brand="Audi" p:company="german"></bean>
+	<bean id="car2"  p:brand="Audi-A6" parent="car1"></bean>
+	<bean id="car3"  p:brand="Audi-A4" parent="car"></bean>
+	
+	<util:list id="waiters" list-class="java.util.ArrayList"
+        value-type="java.lang.String">
+        <!-- 也可用引用的形式 <ref bean="car1"></ref> -->
+        <value>张三</value>
+        <value>李四</value>
+        <value>王五</value>
+    </util:list>
+	<util:map id="map">
+		<!-- value直接赋值为String类型,value-ref引用其他配置的bean -->
+	    <entry key="张三" value-ref="car1"/>
+	    <entry key="李四" value-ref="car2"/>
+	    <entry key="王五" value-ref="car3"/>
+	</util:map>
+ 
+    
+	<bean id="group" class="com.atguigu.spring.collection.Group">
+		<property name="id" value="1"></property>
+		<property name="leaders">
+			<array value-type="java.lang.String">
+				<value>aa</value>
+				<value>bb</value>
+				<value>cc</value>
+			</array>
+		</property>
+		<property name="waiters" ref="waiters"></property>
+		<property name="map" ref="map"></property>
+	</bean>
+</beans>

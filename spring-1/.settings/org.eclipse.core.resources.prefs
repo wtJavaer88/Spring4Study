@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+encoding//src/com/atguigu/spring/annotation=GBK
+encoding//src/com/atguigu/spring/annotation/UserAction.java=GBK
+encoding//src/com/atguigu/spring/annotation/UserDao.java=GBK
+encoding//src/com/atguigu/spring/annotation/UserService.java=GBK
+encoding//src/com/atguigu/spring/beanfactory/Main.java=GBK
+encoding//src/com/atguigu/spring/collection/Main.java=GBK
+encoding//src/com/atguigu/spring/helloworld/Main.java=GBK
+encoding//src/com/atguigu/spring/ref/Main.java=GBK
+encoding//src/com/atguigu/spring/relation/Main.java=GBK
